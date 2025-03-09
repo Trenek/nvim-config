@@ -1,0 +1,3 @@
+require("trenek")
+
+--print("Hejo")
