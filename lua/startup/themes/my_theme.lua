@@ -17,14 +17,6 @@ local banners = {
         "  █▄▄▄█ █▄▄▄█  █▄█▄▄▄▄▄▄▄█▄█  █▄▄█▄▄▄▄▄▄▄█▄▄▄█ █▄█",
     },
     {
-        "███████╗██╗      ██████╗  ██████╗ ███████╗",
-        "██╔════╝██║     ██╔═══██╗██╔═══██╗██╔════╝",
-        "█████╗  ██║     ██║   ██║██║   ██║█████╗  ",
-        "██╔══╝  ██║     ██║   ██║██║   ██║██╔══╝  ",
-        "██║     ███████╗╚██████╔╝╚██████╔╝██║     ",
-        "╚═╝     ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     ",
-    },
-    {
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣀⣀⠀⠀⣀⡠⠴⠒⠚⠉⠉⠓⠒⠦⣄⣶⠒⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡷⢬⣉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠠⡌⠻⣧⢻⣧⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣖⠗⡋⢹⠀⠀⢰⡄⠀⠀⢸⣷⡀⠀⣠⠽⣆⢼⣇⢻⣸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
@@ -140,6 +132,11 @@ local myQuotes = {
         "it has assisted a number of our most gifted fellow humans in thinking previously impossible thoughts.",
         "",
         "-- Edsger Dijkstra"
+    },
+    {
+        "Design patterns are spoonfeed material for brainless programmers incapable of independent thought, who will be resolved to producing code as mediocre as the design patterns they use to create it.",
+        "",
+        "-- Christer Ericson"
     }
 }
 

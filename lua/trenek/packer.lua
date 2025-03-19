@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
-        -- or                            , branch = '0.1.x',
+        -- or                          , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
@@ -42,14 +42,14 @@ return require('packer').startup(function(use)
 	    requires = {
             -- LSP Support
 	        { 'neovim/nvim-lspconfig' },
-	        { 'williamboman/mason.nvim',
-                opts = {
-                    ensure_installed = {
-                        "codelldb"
-                    }
+	        {
+                'williamboman/mason.nvim',
+                requires = {
+                    { 'williamboman/mason-lspconfig.nvim' },
+                    { 'mfussenegger/nvim-dap' },
+                    { 'jay-babu/mason-nvim-dap.nvim' }
                 }
             },
-	        { 'williamboman/mason-lspconfig.nvim' },
 
 	        -- Autocompletion
 	        { 'hrsh7th/nvim-cmp' },
@@ -105,3 +105,4 @@ return require('packer').startup(function(use)
     use('lervag/vimtex')
     use('let-def/texpresso.vim')
 end)
+
