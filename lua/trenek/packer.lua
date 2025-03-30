@@ -104,5 +104,6 @@ return require('packer').startup(function(use)
 
     use('lervag/vimtex')
     use('let-def/texpresso.vim')
+    use('registerGen/clock.nvim')
 end)
 

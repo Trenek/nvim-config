@@ -21,5 +21,3 @@ vim.o.undodir = vim.fn.stdpath('data') .. "/undodir"
 vim.o.undofile = true
 
 vim.o.termguicolors = true
-
-vim.opt.scrolloff = 8
