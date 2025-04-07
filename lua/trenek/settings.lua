@@ -21,3 +21,5 @@ vim.o.undodir = vim.fn.stdpath('data') .. "/undodir"
 vim.o.undofile = true
 
 vim.o.termguicolors = true
+
+vim.o.signcolumn = 'yes'
