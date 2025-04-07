@@ -11,6 +11,19 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
+local diagnosticConfig = function(virtual_lines)
+    vim.diagnostic.config({
+        virtual_lines = virtual_lines,
+        virtual_text = not virtual_lines,
+        signs = true,
+        update_in_insert = true,
+        underline = true,
+        severity_sort = true
+    })
+end
+
+diagnosticConfig(false)
+
 -- This is where you enable features that only work
 -- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -35,6 +48,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.setqflist()<cr>', opts)
     vim.keymap.set('n', '<space>ee', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+    vim.keymap.set('n', '<space>es', function() diagnosticConfig(true) end)
+    vim.keymap.set('n', '<space>ef', function() diagnosticConfig(false) end)
     vim.keymap.set('n', '<space>en', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
     vim.keymap.set('n', '<space>ep', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
   end,
@@ -68,12 +83,4 @@ cmp.setup({
         ['<C-f>'] = cmp_action.vim_snippet_jump_forward(),
         ['<C-b>'] = cmp_action.vim_snippet_jump_backward(),
     }),
-})
-
-vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    update_in_insert = true,
-    underline = true,
-    severity_sort = true
 })
