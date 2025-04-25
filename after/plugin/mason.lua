@@ -20,7 +20,6 @@ require("mason-lspconfig").setup({
         "glsl_analyzer",
         "jdtls",
         "elixirls",
-        "erlangls",
         "texlab",
     },
     handlers = {
