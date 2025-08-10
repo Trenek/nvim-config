@@ -49,8 +49,9 @@ require("mason-lspconfig").setup({
                 cmd = {
                     "clangd",
                     "--clang-tidy",
---                  "--cross-file-rename"
-                }
+--                  "--cross-file-rename",
+                    "-header-insertion=never",
+                },
             })
         end,
         ["lua_ls"] = function()
