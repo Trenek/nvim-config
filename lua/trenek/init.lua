@@ -1,4 +1,4 @@
-require("trenek.packer")
+require("trenek.plugins")
 require("trenek.remap")
 require("trenek.settings")
 

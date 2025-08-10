@@ -1,3 +1,1 @@
 require("trenek")
-
---print("Hejo")
