@@ -8,7 +8,6 @@ vim.pack.add({
     { src = 'https://github.com/rose-pine/neovim', name = 'rose-pine-moon' },
     { src = 'https://github.com/morhetz/gruvbox' },
     { src = 'https://github.com/folke/tokyonight.nvim' },
-    { src = 'https://github.com/xiyaowong/transparent.nvim' }, -- transparent
 
     -- file parser (i więcej kolorków!!!)
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
