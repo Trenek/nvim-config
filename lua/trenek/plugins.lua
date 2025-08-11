@@ -11,8 +11,7 @@ vim.pack.add({
     { src = 'https://github.com/xiyaowong/transparent.nvim' }, -- transparent
 
     -- file parser (i więcej kolorków!!!)
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
-    { src = 'https://github.com/nvim-treesitter/playground' },
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
 
     -- some useful things
     { src = 'https://github.com/theprimeagen/harpoon' },
@@ -39,7 +38,6 @@ vim.pack.add({
     { src = 'https://github.com/registerGen/clock.nvim' },
 })
 
-vim.cmd('colorscheme tokyonight') -- kolorki
 vim.cmd('TSUpdate') -- treesitter
 
 require('render-markdown').setup({}) -- markdown

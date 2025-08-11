@@ -15,6 +15,8 @@ end
 
 diagnosticConfig(false)
 
+local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
@@ -37,63 +39,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 
-        vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.setqflist()<cr>', opts)
-        vim.keymap.set('n', '<space>ee', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-        vim.keymap.set('n', '<space>es', function() diagnosticConfig(true) end)
-        vim.keymap.set('n', '<space>ef', function() diagnosticConfig(false) end)
-        vim.keymap.set('n', '<space>en', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
-        vim.keymap.set('n', '<space>ep', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-
-        if client:supports_method('textDocument/implementation') then
-            -- Create a keymap for vim.lsp.buf.implementation ...
-        end
-
-        local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-        client.server_capabilities.completionProvider.triggerCharacters = chars
+        vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.setqflist()<cr>', opts)
+        vim.keymap.set('n', '<leader>ee', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+        vim.keymap.set('n', '<leader>es', function() diagnosticConfig(true) end)
+        vim.keymap.set('n', '<leader>ef', function() diagnosticConfig(false) end)
+        vim.keymap.set('n', '<leader>en', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+        vim.keymap.set('n', '<leader>ep', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
 
         if client:supports_method('textDocument/completion') then
-            -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-            -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-            -- client.server_capabilities.completionProvider.triggerCharacters = chars
+            client.server_capabilities.completionProvider.triggerCharacters = chars
             vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
 
             vim.keymap.set('i', '<C-f>', function() vim.snippet.jump(1) end, opts)
             vim.keymap.set('i', '<C-b>', function() vim.snippet.jump(-1) end, opts)
         end
     end,
-})
-
-vim.lsp.config('lua_ls', {
-    on_init = function(client)
-        if client.workspace_folders then
-            local path = client.workspace_folders[1].name
-            if path ~= vim.fn.stdpath('config') and (vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc')) then
-                return
-            end
-        end
-
-        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-            runtime = {
-                version = 'LuaJIT',
-                path = {
-                    'lua/?.lua',
-                    'lua/?/init.lua',
-                },
-            },
-            workspace = {
-                checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME
-                }
-            }
-        })
-    end,
-    settings = {
-        Lua = {
-            runtime = { version = "Lua 5.1" },
-            diagnostics = {
-                globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-            }
-        }
-    }
 })
