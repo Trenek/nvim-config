@@ -17,11 +17,11 @@ vim.o.showbreak = "ͱ"
 -- undo tree does backups instead of vim
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = vim.fn.stdpath('data') .. "/undodir"
+vim.o.undodir = vim.fn.stdpath('data') .. '/undodir'
 vim.o.undofile = true
 
 vim.o.termguicolors = true
 
 vim.o.signcolumn = 'yes'
 
-vim.lsp.set_log_level("off")
+vim.lsp.set_log_level('off')

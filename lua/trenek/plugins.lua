@@ -42,5 +42,5 @@ vim.cmd('TSUpdate') -- treesitter
 require('render-markdown').setup({}) -- markdown
 
 -- random
-require("startup").setup({ theme = "my_theme" })
-require("clock").setup()
+require('startup').setup({ theme = 'my_theme' })
+require('clock').setup()

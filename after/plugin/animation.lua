@@ -16,7 +16,7 @@ anim.register_animation({
 
 anim.register_animation({
     fps = 15,
-    name = "vslide",
+    name = 'vslide',
     update = function (grid)
         for i = 1, (#grid / 2) - 1 do
             grid[i], grid[i + 1] = grid[i + 1], grid[i]
@@ -28,7 +28,7 @@ anim.register_animation({
     end
 })
 
-vim.keymap.set("n", "<leader>rain", "<cmd>CellularAutomaton make_it_rain<CR>")
-vim.keymap.set("n", "<leader>life", "<cmd>CellularAutomaton game_of_life<CR>")
-vim.keymap.set("n", "<leader>slide", "<cmd>CellularAutomaton slide<CR>")
-vim.keymap.set("n", "<leader>vslide", "<cmd>CellularAutomaton vslide<CR>")
+vim.keymap.set('n', '<leader>rain', '<cmd>CellularAutomaton make_it_rain<CR>')
+vim.keymap.set('n', '<leader>life', '<cmd>CellularAutomaton game_of_life<CR>')
+vim.keymap.set('n', '<leader>slide', '<cmd>CellularAutomaton slide<CR>')
+vim.keymap.set('n', '<leader>vslide', '<cmd>CellularAutomaton vslide<CR>')

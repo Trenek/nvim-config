@@ -1,6 +1,9 @@
-require("trenek.plugins")
-require("trenek.lsp")
-require("trenek.remap")
-require("trenek.settings")
+require('trenek.plugins')
 
-print("Trenek Wita")
+require('trenek.lsp')
+require('trenek.color')
+
+require('trenek.remap')
+require('trenek.settings')
+
+--print('Trenek Wita')

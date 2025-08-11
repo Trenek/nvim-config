@@ -17,7 +17,7 @@ diagnosticConfig(false)
 
 local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
 
-vim.opt.completeopt = { "menuone", "noselect", "popup" }
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(event)
