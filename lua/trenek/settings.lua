@@ -23,5 +23,3 @@ vim.o.undofile = true
 vim.o.termguicolors = true
 
 vim.o.signcolumn = 'yes'
-
-vim.lsp.set_log_level('off')

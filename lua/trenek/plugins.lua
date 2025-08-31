@@ -8,9 +8,10 @@ vim.pack.add({
     { src = 'https://github.com/rose-pine/neovim', name = 'rose-pine-moon' },
     { src = 'https://github.com/morhetz/gruvbox' },
     { src = 'https://github.com/folke/tokyonight.nvim' },
+    { src = 'https://github.com/Rigellute/shades-of-purple.vim' },
 
     -- file parser (i więcej kolorków!!!)
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
 
     -- some useful things
     { src = 'https://github.com/theprimeagen/harpoon' },
@@ -36,8 +37,6 @@ vim.pack.add({
     { src = 'https://github.com/eandrju/cellular-automaton.nvim' },
     { src = 'https://github.com/registerGen/clock.nvim' },
 })
-
-vim.cmd('TSUpdate') -- treesitter
 
 require('render-markdown').setup({}) -- markdown
 
