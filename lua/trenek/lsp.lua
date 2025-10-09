@@ -16,6 +16,8 @@ end
 diagnosticConfig(false)
 
 local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+vim.lsp.enable({'prolog'})
+vim.lsp.enable({'haskell-language-server'})
 
 vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.api.nvim_create_autocmd('LspAttach', {

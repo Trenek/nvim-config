@@ -40,9 +40,11 @@ require('nvim-treesitter.configs').setup({
 vim.filetype.add({
     extension = {
         frag = 'frag',
-        vert = 'vert'
+        vert = 'vert',
+        prolog = 'prolog',
     }
 })
 
 vim.treesitter.language.register('glsl', 'frag')
 vim.treesitter.language.register('glsl', 'vert')
+vim.treesitter.language.register('prolog', 'prolog')
