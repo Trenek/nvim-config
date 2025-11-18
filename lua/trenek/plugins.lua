@@ -17,7 +17,7 @@ vim.pack.add({
     { src = 'https://github.com/theprimeagen/harpoon' },
     { src = 'https://github.com/mbbill/undotree' },
     { src = 'https://github.com/tpope/vim-fugitive' }, -- Git integration
-    { src = 'https://github.com/cdelledonne/vim-cmake' },
+    { src = 'https://github.com/Shatur/neovim-tasks' },
 
     -- mason
     { src = 'https://github.com/williamboman/mason.nvim' },
@@ -35,11 +35,8 @@ vim.pack.add({
     -- random
     { src = 'https://github.com/startup-nvim/startup.nvim' },
     { src = 'https://github.com/eandrju/cellular-automaton.nvim' },
-    { src = 'https://github.com/registerGen/clock.nvim' },
+    { src = 'https://github.com/folke/which-key.nvim' },
 })
 
-require('render-markdown').setup({}) -- markdown
-
--- random
+require('render-markdown').setup({})
 require('startup').setup({ theme = 'my_theme' })
-require('clock').setup()
