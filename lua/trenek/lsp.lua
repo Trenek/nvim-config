@@ -1,7 +1,3 @@
--- NOTE: to make any of this work you need a language server.
--- If you don't know what that is, watch this 5 min video:
--- https://www.youtube.com/watch?v=LaS32vctfOY
-
 local diagnosticConfig = function(virtual_lines)
     vim.diagnostic.config({
         virtual_lines = virtual_lines,
@@ -16,8 +12,6 @@ end
 diagnosticConfig(false)
 
 local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-vim.lsp.enable({'prolog'})
-vim.lsp.enable({'haskell-language-server'})
 
 vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -57,3 +51,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+-- random thing for eric
+-- require("lspconfig")["clang"].setup({cmd = {
+--     "clangd",
+--     "--query-driver=/proj/rbsNodeIfStorage/nodeif/**/x86_64-wrs-linux-g*"
+-- }})
+vim.lsp.enable({'prolog'})
+vim.lsp.enable({'haskell-language-server'})
