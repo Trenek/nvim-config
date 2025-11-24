@@ -1,14 +1,22 @@
 local Path = require('plenary.path')
 
+local getKit = function ()
+    if vim.fn.has('win32') then
+        return 'mingw'
+    else
+        return 'default'
+    end
+end
+
 require('tasks').setup({
     default_params = {
       cmake = {
         cmd = 'cmake',
         build_type = 'Debug',
-        build_kit = 'default',
+        build_kit = getKit(),
         dap_name = 'codelldb',
         build_dir = tostring(Path:new('{cwd}', 'build')),
-        cmake_kits_file = nil,
+        cmake_kits_file = vim.fn.stdpath("config") .. "/after/plugin/buildTypes.json",
         cmake_build_types_file = nil,
         clangd_cmdline = {
           'clangd',
