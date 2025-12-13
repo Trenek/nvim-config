@@ -1,11 +1,12 @@
 local Path = require('plenary.path')
 
 local getKit = function ()
-    if vim.fn.has('win32') then
-        return 'mingw'
-    else
-        return 'default'
-    end
+    return 'default'
+    --if vim.loop.os_uname().sysname:find 'Windows' and true or false then
+    --    return 'mingw'
+    --else
+    --    return 'default'
+    --end
 end
 
 require('tasks').setup({
@@ -55,6 +56,7 @@ local function setup(x)
     vim.keymap.set('n', '<leader>tkb', ':Task start '..x..' build<cr>', { silent = true })
     vim.keymap.set('n', '<leader>tkB', ':Task start '..x..' build_all<cr>', { silent = true })
     vim.keymap.set('n', '<leader>tkr', ':Task start '..x..' run<cr>', { silent = true })
+    vim.keymap.set('n', '<leader>tkR', ':Task start '..x..' run ', { silent = true })
     vim.keymap.set('n', '<leader>tkK', ':Task start '..x..' clean<cr>', { silent = true })
     vim.keymap.set('n', '<leader>tkT', ':Task start '..x..' ctest<cr>', { silent = true })
     vim.keymap.set('n', '<leader>tkp', ':Task start '..x..' purge<cr>', { silent = true })
@@ -67,3 +69,7 @@ local function setup(x)
 end
 
 setup('cmake')
+
+vim.keymap.set('n', '<leader>mc', ':make clean<cr>', { silent = true })
+vim.keymap.set('n', '<leader>ma', ':make all<cr>', { silent = true })
+vim.keymap.set('n', '<leader>mr', ':make run<cr>', { silent = true })

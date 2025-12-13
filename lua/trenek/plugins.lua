@@ -1,3 +1,5 @@
+vim.cmd.packadd('nvim.undotree')
+
 vim.pack.add({
     -- telescope
     { src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -15,7 +17,6 @@ vim.pack.add({
 
     -- some useful things
     { src = 'https://github.com/theprimeagen/harpoon' },
-    { src = 'https://github.com/mbbill/undotree' },
     { src = 'https://github.com/tpope/vim-fugitive' }, -- Git integration
     { src = 'https://github.com/Shatur/neovim-tasks' },
 
@@ -38,4 +39,3 @@ vim.pack.add({
     { src = 'https://github.com/folke/which-key.nvim' },
     { src = 'https://github.com/FabijanZulj/blame.nvim' },
 })
-
