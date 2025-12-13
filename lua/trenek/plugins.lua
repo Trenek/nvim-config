@@ -26,7 +26,7 @@ vim.pack.add({
     { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
 
     -- markdown
-    { src = 'https://github.com/nvim-mini/mini.nvim' },
+    { src = 'https://github.com/nvim-mini/mini.icons' },
     { src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim' },
 
     -- latex
@@ -37,5 +37,4 @@ vim.pack.add({
     { src = 'https://github.com/max397574/startup.nvim' },
     { src = 'https://github.com/eandrju/cellular-automaton.nvim' },
     { src = 'https://github.com/folke/which-key.nvim' },
-    { src = 'https://github.com/FabijanZulj/blame.nvim' },
 })
