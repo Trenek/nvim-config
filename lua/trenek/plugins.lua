@@ -13,7 +13,7 @@ vim.pack.add({
     { src = 'https://github.com/Rigellute/shades-of-purple.vim' },
 
     -- file parser (i więcej kolorków!!!)
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
 
     -- some useful things
     { src = 'https://github.com/theprimeagen/harpoon' },
