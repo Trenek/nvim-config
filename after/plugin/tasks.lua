@@ -1,12 +1,27 @@
 local Path = require('plenary.path')
 
+local function getOS()
+	-- ask LuaJIT first
+	if jit then
+		return jit.os
+	end
+
+	-- Unix, Linux variants
+	local fh, _ = assert(io.popen("uname -o 2>/dev/null","r"))
+    local osname
+    if fh then
+        osname = fh:read()
+    end
+
+	return osname or "Windows"
+end
+
 local getKit = function ()
-    return 'default'
-    --if vim.loop.os_uname().sysname:find 'Windows' and true or false then
-    --    return 'mingw'
-    --else
-    --    return 'default'
-    --end
+    if getOS() == 'Windows' then
+        return 'mingw'
+    else
+        return 'default'
+    end
 end
 
 require('tasks').setup({
