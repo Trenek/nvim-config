@@ -12,18 +12,16 @@ vim.pack.add({
     { src = 'https://github.com/folke/tokyonight.nvim' },
     { src = 'https://github.com/Rigellute/shades-of-purple.vim' },
 
-    -- file parser (i więcej kolorków!!!)
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
+    -- pobieracze
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter' }, -- treesitter parsers
+    { src = 'https://github.com/mason-org/mason.nvim' }, -- everything
+    { src = 'https://github.com/neovim/nvim-lspconfig' }, -- lsp default configs
+    { src = 'https://github.com/mason-org/mason-lspconfig.nvim' }, -- default mason installs ?
 
     -- some useful things
     { src = 'https://github.com/theprimeagen/harpoon' },
     { src = 'https://github.com/tpope/vim-fugitive' }, -- Git integration
     { src = 'https://github.com/Shatur/neovim-tasks' },
-
-    -- mason
-    { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = 'https://github.com/mason-org/mason.nvim' },
-    { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
 
     -- markdown
     { src = 'https://github.com/nvim-mini/mini.icons' },

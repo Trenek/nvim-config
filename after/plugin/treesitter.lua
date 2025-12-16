@@ -1,40 +1,39 @@
-require('nvim-treesitter.configs').setup({
-  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = {
-      'c',
-      'cpp',
-      'lua',
-      'vim',
-      'vimdoc',
-      'query',
-      'markdown',
-      'markdown_inline',
-      'java',
-      'glsl',
-  },
+local treesitter = require('nvim-treesitter')
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+local not_installed = function(ensure)
+    local alreadyInstalled = treesitter.get_installed('parsers')
 
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
+    return vim.iter(ensure)
+        :filter(function(parser)
+                return not vim.tbl_contains(alreadyInstalled, parser)
+            end)
+        :totable()
+end
 
-  -- List of parsers to ignore installing (or "all")
-  ignore_install = { 'javascript' },
+treesitter.install(not_installed({
+    'c',
+    'cpp',
+    'lua',
+    'vim',
+    'vimdoc',
+    'markdown',
+    'java',
+    'glsl'
+}))
 
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+vim.api.nvim_create_autocmd('FileType', {
+    callback = function()
+        local ft = vim.bo.filetype
+        local lang = vim.treesitter.language.get_lang(ft)
 
-  highlight = {
-    enable = true,
+        if vim.tbl_contains(treesitter.get_available(), lang) then
+            if next(not_installed({ lang })) ~= nil then
+                treesitter.install({ lang }):wait()
+            end
 
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
+            vim.treesitter.start()
+        end
+    end,
 })
 
 vim.filetype.add({
