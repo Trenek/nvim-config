@@ -17,8 +17,8 @@ treesitter.install(not_installed({
     'vim',
     'vimdoc',
     'markdown',
-    'java',
-    'glsl'
+    'glsl',
+    'gitcommit'
 }))
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -28,12 +28,12 @@ vim.api.nvim_create_autocmd('FileType', {
 
         if vim.tbl_contains(treesitter.get_available(), lang) then
             if next(not_installed({ lang })) ~= nil then
-                treesitter.install({ lang }):wait()
+                treesitter.install({ lang }):wait(10000)
             end
 
             vim.treesitter.start()
         end
-    end,
+    end
 })
 
 vim.filetype.add({

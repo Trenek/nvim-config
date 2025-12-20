@@ -51,11 +51,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
-
--- random thing for eric
--- require("lspconfig")["clang"].setup({cmd = {
---     "clangd",
---     "--query-driver=/proj/rbsNodeIfStorage/nodeif/**/x86_64-wrs-linux-g*"
--- }})
-vim.lsp.enable({'prolog'})
-vim.lsp.enable({'haskell-language-server'})

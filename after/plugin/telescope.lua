@@ -12,6 +12,9 @@ telescope.setup({
 vim.keymap.set('n', '<leader>tc', builtin.colorscheme, { desc = 'Telescope colorschemes' })
 vim.keymap.set('n', '<leader>tf', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>tg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>to', builtin.oldfiles, { desc = 'Telescope oldfiles' })
+vim.keymap.set('n', '<leader>tb', '<cmd>Telescope file_browser<cr>', { desc = 'Telescope file browser' })
+
 vim.keymap.set('n', '<leader>ts', function()
     builtin.grep_string({ search = vim.fn.input('Grep > ') })
 end, { desc = 'Some Grep' })
