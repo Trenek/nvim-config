@@ -33,6 +33,10 @@ vim.pack.add({
 
     -- random
     { src = 'https://github.com/max397574/startup.nvim' },
+    { src = 'https://github.com/nvim-mini/mini.starter' },
     { src = 'https://github.com/eandrju/cellular-automaton.nvim' },
     { src = 'https://github.com/folke/which-key.nvim' },
 })
+
+vim.g.startup = true
+-- vim.g.starter = true
