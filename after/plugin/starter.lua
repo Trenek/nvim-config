@@ -120,7 +120,7 @@ if vim.g.starter then
             },
             {
                 name = '󰙴 Edit theme',
-                action = 'lua vim.cmd.tabnew("Settings") vim.cmd.e(vim.fn.stdpath("config") .. "/after/plugin/startup.lua")',
+                action = 'lua vim.cmd.tabnew("Settings") vim.cmd.e(vim.fn.stdpath("config") .. "/after/plugin/starter.lua")',
                 section = 'Settings'
             },
         },
