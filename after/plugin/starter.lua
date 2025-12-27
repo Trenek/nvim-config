@@ -15,52 +15,53 @@ if vim.g.starter then
         return string.rep(' ', left)
     end
 
-    local function aligning(horizontal, vertical)
-        horizontal = horizontal or 'left'
-        vertical = vertical or 'top'
+    local function getLength(content)
+        local width = 0
 
-        local horiz_coef = ({ left = 0, center = 0.5, right = 1.0 })[horizontal]
-        local vert_coef = ({ top = 0, center = 0.5, bottom = 1.0 })[vertical]
+        for _, c in ipairs(content) do
+            width = width + vim.fn.strdisplaywidth(c.string)
+        end
 
+        return width
+    end
+
+    local function isEmpty(line)
+        return #line == 0 or (#line == 1 and line[1].string == '')
+    end
+
+    local function aligning(horiz_coef, vert_coef)
         return function(content, buf_id)
             local win_id = vim.fn.bufwinid(buf_id)
-            if win_id < 0 then return end
-
-            local line_strings = MiniStarter.content_to_lines(content)
             local first = -1
+            local max_width = 0
 
-            for i, line in ipairs(content) do
-                local is_empty_line = #line == 0 or (#line == 1 and line[1].string == '')
+            if win_id < 0 then return end
+            for i, line in ipairs(content) do if not isEmpty(line) then
+                if line[1].string == '░ ' then
+                    if first == -1 then
+                        first = i
+                        max_width = 0
+                    end
 
-                if not is_empty_line then
-                    if line[1].string == '░ ' then
-                        if first == -1 then first = i end
-                    else
-                        if first ~= -1 then
-                            local max_width = 0
-
-                            for var = first, i - 2 do
-                                max_width = math.max(vim.fn.strdisplaywidth(content[var][2].string) + 2, max_width)
-                            end
-
-                            local left_pad = createPadding(max_width, win_id, horiz_coef)
-                            for var = first, i - 2 do
-                                table.insert(content[var], 1, content_unit(left_pad, 'empty', nil))
-                            end
-
-                            first = -1
+                    max_width = math.max(getLength(line), max_width)
+                else
+                    if first ~= -1 then
+                        local left_pad = createPadding(max_width, win_id, horiz_coef)
+                        for var = first, i - 2 do
+                            table.insert(content[var], 1, content_unit(left_pad, 'empty', nil))
                         end
 
-                        local lines_width = vim.fn.strdisplaywidth(line[1].string)
-                        local left_pad = createPadding(lines_width, win_id, horiz_coef)
-
-                        table.insert(line, 1, content_unit(left_pad, 'empty', nil))
+                        first = -1
                     end
+
+                    local left_pad = createPadding(getLength(line), win_id, horiz_coef)
+
+                    table.insert(line, 1, content_unit(left_pad, 'empty', nil))
                 end
-            end
+            end end
 
             -- Align vertically
-            local bottom_space = vim.api.nvim_win_get_height(win_id) - #line_strings
+            local bottom_space = vim.api.nvim_win_get_height(win_id) - #content
             local top_pad = math.max(math.floor(vert_coef * bottom_space), 0)
 
             return MiniStarter.gen_hook.padding(0, top_pad)(content)
@@ -120,7 +121,7 @@ if vim.g.starter then
             },
             {
                 name = '󰙴 Edit theme',
-                action = 'lua vim.cmd.tabnew("Settings") vim.cmd.e(vim.fn.stdpath("config") .. "/after/plugin/startup.lua")',
+                action = 'lua vim.cmd.tabnew("Settings") vim.cmd.e(vim.fn.stdpath("config") .. "/after/plugin/starter.lua")',
                 section = 'Settings'
             },
         },
@@ -128,7 +129,7 @@ if vim.g.starter then
         content_hooks = {
             MiniStarter.gen_hook.adding_bullet(),
             MiniStarter.gen_hook.indexing('all', { 'Builtin actions' }),
-            aligning('center', 'center'),
+            aligning(0.5, 0.5),
         },
     })
 end
