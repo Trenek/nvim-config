@@ -31,12 +31,14 @@ vim.pack.add({
     { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
     { src = 'https://github.com/nvim-mini/mini.icons' },
 
-    -- random
-    { src = 'https://github.com/max397574/startup.nvim' },
+    -- startup plugins
     { src = 'https://github.com/nvim-mini/mini.starter' },
+    { src = 'https://github.com/goolord/alpha-nvim' },
+
+    -- random
     { src = 'https://github.com/eandrju/cellular-automaton.nvim' },
     { src = 'https://github.com/folke/which-key.nvim' },
 })
 
-vim.g.startup = true
 -- vim.g.starter = true
+vim.g.alpha = true

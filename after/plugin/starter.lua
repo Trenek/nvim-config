@@ -1,9 +1,17 @@
 if vim.g.starter then
     local MiniStarter = require('mini.starter')
+    local getBanner = require('trenek.startup.banners')
+    local getQuote = require('trenek.startup.quotes')
 
-    require('startup.themes.minify')
-    require('startup.themes.banners')
-    require('startup.themes.quotes')
+    local function minify(table)
+        local result = ""
+
+        for _, t in ipairs(table) do
+            result = result .. t .. "\n"
+        end
+
+        return result
+    end
 
     local function content_unit(string, type, hl, extra)
         return vim.tbl_extend('force', { string = string, type = type, hl = hl }, extra or {})
@@ -72,8 +80,8 @@ if vim.g.starter then
         autoopen = true,
         evaluate_single = false,
 
-        header = Minify(GetBanner()),
-        footer = Minify(GetQuote()),
+        header = minify(getBanner()),
+        footer = minify(getQuote()),
 
         query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
         silent = false,

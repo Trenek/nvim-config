@@ -176,7 +176,7 @@ local banners = {
     }
 }
 
-function GetBanner()
+return function()
     math.randomseed(os.clock())
 
     local index = math.floor(math.random() * #banners) + 1

@@ -146,7 +146,7 @@ local quotes = {
     }
 }
 
-function GetQuote()
+return function()
     math.randomseed(os.clock())
 
     local index = math.floor(math.random() * #quotes)
