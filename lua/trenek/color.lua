@@ -19,6 +19,11 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         if isTransparent then
             vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
             vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+
+            vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'NONE' })
+            vim.api.nvim_set_hl(0, 'PmenuBorder', { bg = 'NONE', fg = "#A0FF00" })
+        else
+            vim.api.nvim_set_hl(0, 'PmenuBorder', { fg = "#A0FF00" })
         end
     end,
 })

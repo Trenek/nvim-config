@@ -14,6 +14,8 @@ vim.o.linebreak = true
 vim.o.breakindent = true
 vim.o.showbreak = "ͱ"
 
+vim.o.pumborder = 'rounded'
+
 -- undo tree does backups instead of vim
 vim.o.swapfile = false
 vim.o.backup = false
