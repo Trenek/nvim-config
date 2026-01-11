@@ -50,30 +50,26 @@ vim.cmd([[
     highlight MyHighlight6 guibg=Purple
 ]])
 
-vim.keymap.set('n', '<leader>ll', '<cmd>set cursorline! cursorcolumn!<cr>', {
-    desc = 'Pointer',
+local function matchaddpos(x)
+    return function()
+        vim.fn.matchaddpos('MyHighlight' .. x, { vim.fn.line('.') })
+    end
+end
+
+vim.keymap.set('n', '<leader>ll', function()
+    vim.wo.cursorline = not vim.wo.cursorline
+    vim.wo.cursorcolumn = not vim.wo.cursorcolumn
+end, {
+    desc = 'pointer',
     silent = true
 })
-vim.keymap.set('n', '<leader>l0', '<cmd>call clearmatches()<cr>', {
-    desc = 'Clear Colored Lines'
-})
-vim.keymap.set('n', '<leader>l1', '<cmd>call matchaddpos("MyHighlight1", [line(".")])<cr>', {
-    desc = 'Color Line 1'
-})
-vim.keymap.set('n', '<leader>l2', '<cmd>call matchaddpos("MyHighlight2", [line(".")])<cr>', {
-    desc = 'Color Line 2'
-})
-vim.keymap.set('n', '<leader>l3', '<cmd>call matchaddpos("MyHighlight3", [line(".")])<cr>', {
-    desc = 'Color Line 3'
-})
-vim.keymap.set('n', '<leader>l4', '<cmd>call matchaddpos("MyHighlight4", [line(".")])<cr>', {
-    desc = 'Color Line 4'
-})
-vim.keymap.set('n', '<leader>l5', '<cmd>call matchaddpos("MyHighlight5", [line(".")])<cr>', {
-    desc = 'Color Line 5'
-})
-vim.keymap.set('n', '<leader>l6', '<cmd>call matchaddpos("MyHighlight6", [line(".")])<cr>', {
-    desc = 'Color Line 6'
-})
+
+vim.keymap.set('n', '<leader>l0', vim.fn.clearmatches, { desc = 'Clear Colored Lines' })
+vim.keymap.set('n', '<leader>l1', matchaddpos('1'), { desc = 'Color Line 1' })
+vim.keymap.set('n', '<leader>l2', matchaddpos('2'), { desc = 'Color Line 2' })
+vim.keymap.set('n', '<leader>l3', matchaddpos('3'), { desc = 'Color Line 3' })
+vim.keymap.set('n', '<leader>l4', matchaddpos('4'), { desc = 'Color Line 4' })
+vim.keymap.set('n', '<leader>l5', matchaddpos('5'), { desc = 'Color Line 5' })
+vim.keymap.set('n', '<leader>l6', matchaddpos('6'), { desc = 'Color Line 6' })
 
 vim.cmd.colorscheme('tokyonight-night')
