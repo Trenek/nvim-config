@@ -1,25 +1,14 @@
 local treesitter = require('nvim-treesitter')
 
-local not_installed = function(ensure)
-    local alreadyInstalled = treesitter.get_installed('parsers')
-
-    return vim.iter(ensure)
-        :filter(function(parser)
-                return not vim.tbl_contains(alreadyInstalled, parser)
-            end)
-        :totable()
-end
-
-treesitter.install(not_installed({
+treesitter.install({
     'c',
     'cpp',
     'lua',
     'vim',
     'vimdoc',
     'markdown',
-    'glsl',
     'gitcommit'
-}))
+})
 
 vim.api.nvim_create_autocmd('FileType', {
     callback = function()
@@ -27,9 +16,7 @@ vim.api.nvim_create_autocmd('FileType', {
         local lang = vim.treesitter.language.get_lang(ft)
 
         if vim.tbl_contains(treesitter.get_available(), lang) then
-            if next(not_installed({ lang })) ~= nil then
-                treesitter.install({ lang }):wait(10000)
-            end
+            treesitter.install({ lang }):wait(10000)
 
             vim.treesitter.start()
         end
