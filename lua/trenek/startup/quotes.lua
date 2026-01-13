@@ -28,54 +28,76 @@ local quotes = {
         "",
         "-- Frank Wilczek",
     },
-    { -- ????????
+    {
         "Use tracer bullets to find the target.",
         "Tracer bullets let you home in on your target",
         "by trying things and seeing how close they land.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Always design for concurrency.",
         "Allow for concurrency, and you'll design cleaner interfaces with fewer assumptions.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Test your software, or your users will.",
         "Test ruthlessly. Don't make your users find bugs for you.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Don't live with broken windows.",
         "Fix bad designs, wrong decisions, and poor code when you see them.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Keep knowledge in plain text.",
         "Plain text won't become obsolete.",
         "It helps leverage your work and simplifies debugging and testing.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Use a single editor well.",
         "The editor should be an extension of your hand;",
         "make sure your editor is configurable, extensible, and programmable.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Crash early.",
         "A dead program normally does a lot less damage than a crippled one.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Design to test.",
         "Start thinking about testing before you write a line of code.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Work with a user to think like a user.",
         "It's the best way to gain insight into how the system will really be used.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Test early. Test often. Test automatically.",
         "Tests that run with every build are much more effective",
         "than test plans that sit on a shelf.",
+        "",
+        "-- The Pragmatic Programmer"
     },
-    { -- ????????
+    {
         "Use saboteurs to test your testing.",
         "Introduce bugs on purpose in a separate copy of the source",
         "to verify that testing will catch them.",
+        "",
+        "-- The Pragmatic Programmer"
     },
     {
         "There's an old story about the person",
