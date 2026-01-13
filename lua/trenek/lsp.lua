@@ -46,8 +46,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
             client.server_capabilities.completionProvider.triggerCharacters = chars
             vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
 
-            vim.keymap.set('i', '<C-f>', function() vim.snippet.jump(1) end, opts)
-            vim.keymap.set('i', '<C-b>', function() vim.snippet.jump(-1) end, opts)
+            -- + Tab and S-Tab
+            vim.keymap.set('i', '<A-[>', function() vim.snippet.jump(-1) end, opts)
+            vim.keymap.set('i', '<A-]>', function() vim.snippet.jump(1) end, opts)
         end
     end,
 })
