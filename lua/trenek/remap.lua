@@ -8,12 +8,18 @@ vim.keymap.set({'n', 'i', 'x'}, '<A-down>', ':move +1<cr>=<Down>')
 vim.keymap.set('v', '<A-up>', ":move '<-2<cr>gv=gv")
 vim.keymap.set('v', '<A-down>', ":move '>+1<cr>gv=gv")
 
+vim.g.clipboard = 'osc52'
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>Y', '"+Y')
 
 vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
 
-vim.keymap.set('n', '<leader>pu', vim.pack.update)
-vim.keymap.set('n', '<leader>u', vim.cmd.Undotree)
+if vim.version().minor >= 12 then
+  vim.keymap.set('n', '<leader>pu', vim.pack.update)
+  vim.keymap.set('n', '<leader>u', vim.cmd.Undotree)
+else
+  vim.keymap.set('n', '<leader>pu', "<cmd>DepsUpdateOffline<cr>")
+  vim.keymap.set('n', '<leader>u', "<cmd>lua require('undotree').toggle()<cr>")
+end
 
 vim.keymap.set('n', '=q', function() vim.cmd((vim.v.count == 0 and '.' or vim.v.count) .. 'cc') end)
