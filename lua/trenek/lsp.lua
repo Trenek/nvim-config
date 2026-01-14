@@ -51,9 +51,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
 
         if client:supports_method('textDocument/formatting') then
-            vim.keymap.set({ 'n', 'x' }, 'grf', function()
-                vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
-            end, opts)
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                buffer = event.buf,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
+                end,
+            })
         end
 
         -- if client:supports_method('textDocument/onTypeFormatting') then

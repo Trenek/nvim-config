@@ -6,3 +6,6 @@ vim.filetype.add({
         [".bashrc.user"] = "bash",
     }
 })
+
+vim.lsp.enable('clangd')
+vim.lsp.enable('erlangls')
