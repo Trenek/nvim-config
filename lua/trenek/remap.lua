@@ -18,9 +18,9 @@ vim.keymap.set('n', '<leader>u', vim.cmd.Undotree)
 
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'qf' },
-    callback = function(opts)
-        local lOpts = { buffer = opts.buf, silent = true }
+    callback = function(event)
+        local opts = { buffer = event.buf, silent = true }
 
-        vim.keymap.set('n', '<cr>', "<cmd>.cc<cr>", lOpts)
+        vim.keymap.set('n', '<cr>', "<cmd>.cc<cr>", opts)
     end
 })

@@ -65,26 +65,28 @@ require('tasks').setup({
     dap_open_command = function() return require('dap').repl.open() end,
 })
 
+local opts = { silent = true }
+
 local function setup(x)
-    vim.keymap.set('n', '<leader>tkC', ':Task start '..x..' configure<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkD', ':Task start '..x..' configureDebug<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkb', ':Task start '..x..' build<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkB', ':Task start '..x..' build_all<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkr', ':Task start '..x..' run<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkR', ':Task start '..x..' run ', { silent = true })
-    vim.keymap.set('n', '<leader>tkK', ':Task start '..x..' clean<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkT', ':Task start '..x..' ctest<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkp', ':Task start '..x..' purge<cr>', { silent = true })
-    vim.keymap.set('n', '<leader>tkP', ':Task start '..x..' reconfigure<cr>', { silent = true })
+    vim.keymap.set('n', '<leader>tkC', ':Task start '..x..' configure<cr>', opts)
+    vim.keymap.set('n', '<leader>tkD', ':Task start '..x..' configureDebug<cr>', opts)
+    vim.keymap.set('n', '<leader>tkb', ':Task start '..x..' build<cr>', opts)
+    vim.keymap.set('n', '<leader>tkB', ':Task start '..x..' build_all<cr>', opts)
+    vim.keymap.set('n', '<leader>tkr', ':Task start '..x..' run<cr>', opts)
+    vim.keymap.set('n', '<leader>tkR', ':Task start '..x..' run ', opts)
+    vim.keymap.set('n', '<leader>tkK', ':Task start '..x..' clean<cr>', opts)
+    vim.keymap.set('n', '<leader>tkT', ':Task start '..x..' ctest<cr>', opts)
+    vim.keymap.set('n', '<leader>tkp', ':Task start '..x..' purge<cr>', opts)
+    vim.keymap.set('n', '<leader>tkP', ':Task start '..x..' reconfigure<cr>', opts)
 
-    vim.keymap.set('n', '<leader>tkt', ':Task set_module_param '..x..' target<cr>', { silent = true })
+    vim.keymap.set('n', '<leader>tkt', ':Task set_module_param '..x..' target<cr>', opts)
 
-    vim.keymap.set('n', '<C-c>', ':Task cancel<cr>', { silent = true })
-    vim.keymap.set('n', '<F7>', ':Task start '..x..' debug<cr>', { silent = true })
+    vim.keymap.set('n', '<C-c>', ':Task cancel<cr>', opts)
+    vim.keymap.set('n', '<F7>', ':Task start '..x..' debug<cr>', opts)
 end
 
 setup('cmake')
 
-vim.keymap.set('n', '<leader>mc', ':make clean<cr>', { silent = true })
-vim.keymap.set('n', '<leader>ma', ':make all<cr>', { silent = true })
-vim.keymap.set('n', '<leader>mr', ':make run<cr>', { silent = true })
+vim.keymap.set('n', '<leader>mc', ':make clean<cr>', opts)
+vim.keymap.set('n', '<leader>ma', ':make all<cr>', opts)
+vim.keymap.set('n', '<leader>mr', ':make run<cr>', opts)

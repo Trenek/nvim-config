@@ -39,8 +39,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- use ]d, [d, [D. ]D to jump between diagnostics
         vim.keymap.set('n', '<leader>d', vim.diagnostic.setqflist, opts)
         vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', '<leader>ds', function() diagnosticConfig(true) end)
-        vim.keymap.set('n', '<leader>df', function() diagnosticConfig(false) end)
+        vim.keymap.set('n', '<leader>ds', function() diagnosticConfig(true) end, opts)
+        vim.keymap.set('n', '<leader>df', function() diagnosticConfig(false) end, opts)
 
         if client:supports_method('textDocument/completion') then
             client.server_capabilities.completionProvider.triggerCharacters = chars
