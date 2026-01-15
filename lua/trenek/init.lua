@@ -1,5 +1,6 @@
 require('trenek.remap')
 require('trenek.settings')
+require('trenek.filetypes')
 
 require('trenek.lsp')
 
