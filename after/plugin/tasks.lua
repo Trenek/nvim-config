@@ -32,7 +32,7 @@ require('tasks').setup({
         build_kit = getKit(),
         dap_name = 'codelldb',
         build_dir = tostring(Path:new('{cwd}', 'build')),
-        cmake_kits_file = vim.fn.stdpath("config") .. "/after/plugin/buildTypes.json",
+        cmake_kits_file = vim.fn.stdpath("config") .. "/after/plugin/configs/buildTypes.json",
         cmake_build_types_file = nil,
         clangd_cmdline = {
           'clangd',
