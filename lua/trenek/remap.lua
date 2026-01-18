@@ -15,12 +15,3 @@ vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
 
 vim.keymap.set('n', '<leader>pu', vim.pack.update)
 vim.keymap.set('n', '<leader>u', vim.cmd.Undotree)
-
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'qf' },
-    callback = function(event)
-        local opts = { buffer = event.buf, silent = true }
-
-        vim.keymap.set('n', '<cr>', "<cmd>.cc<cr>", opts)
-    end
-})

@@ -20,13 +20,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = event.buf }
         local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
 
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        -- K - vim.lsp.buf.hover
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, opts)
 
-        vim.keymap.set('n', 'gk', vim.lsp.buf.document_highlight, opts)
+        vim.keymap.set('n', 'gRR', vim.lsp.buf.document_highlight, opts)
         vim.keymap.set('n', '<ESC>', vim.lsp.buf.clear_references, opts)
 
         -- gra - code actions
@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- grr - references
         -- Ctr+S in insert mode = signature_help
         vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+        vim.keymap.set({ 'n', 'x' }, 'grf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
 
         -- use ]d, [d, [D. ]D to jump between diagnostics
         vim.keymap.set('n', '<leader>d', vim.diagnostic.setqflist, opts)
@@ -51,4 +51,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('i', '<A-]>', function() vim.snippet.jump(1) end, opts)
         end
     end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'qf' },
+    callback = function(event)
+        local opts = { buffer = event.buf, silent = true }
+
+        vim.keymap.set('n', '<cr>', "<cmd>.cc<cr>", opts)
+    end
 })
