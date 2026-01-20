@@ -35,4 +35,5 @@ vim.pack.add({
     { src = 'https://github.com/goolord/alpha-nvim' },
     { src = 'https://github.com/eandrju/cellular-automaton.nvim' },
     { src = 'https://github.com/folke/which-key.nvim' },
+    -- { src = 'https://github.com/dstein64/vim-startuptime' },
 })
