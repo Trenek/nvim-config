@@ -1,15 +1,8 @@
 vim.filetype.add({
     extension = {
-        frag = 'frag',
-        vert = 'vert',
-    }
-})
-
-vim.filetype.add({
+        asm = 'nasm', -- simple fix for nasm
+    },
     filename = {
         [".bashrc.user"] = "bash",
     }
 })
-
-vim.treesitter.language.register('glsl', 'frag')
-vim.treesitter.language.register('glsl', 'vert')
