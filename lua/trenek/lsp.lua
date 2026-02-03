@@ -34,7 +34,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- grr - references
         -- Ctr+S in insert mode = signature_help
         vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set({ 'n', 'x' }, 'grf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
 
         -- use ]d, [d, [D. ]D to jump between diagnostics
         vim.keymap.set('n', '<leader>d', vim.diagnostic.setqflist, opts)
@@ -50,6 +49,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('i', '<A-[>', function() vim.snippet.jump(-1) end, opts)
             vim.keymap.set('i', '<A-]>', function() vim.snippet.jump(1) end, opts)
         end
+
+        if client:supports_method('textDocument/formatting') then
+            vim.keymap.set({ 'n', 'x' }, 'grf', function()
+                vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
+            end, opts)
+        end
+
+        -- if client:supports_method('textDocument/onTypeFormatting') then
+        --     vim.lsp.on_type_formatting.enable(true)
+        -- end
     end,
 })
 
