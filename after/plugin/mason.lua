@@ -5,6 +5,5 @@ require('mason-lspconfig').setup({
         'lua_ls',
         'neocmake',
         'glsl_analyzer',
-        'asm_lsp'
     },
 })

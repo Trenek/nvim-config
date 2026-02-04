@@ -25,7 +25,6 @@ vim.pack.add({
 
     -- latex
     { src = 'https://github.com/lervag/vimtex' },
-    { src = 'https://github.com/let-def/texpresso.vim' },
 
     -- ikonki
     { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
