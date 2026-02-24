@@ -165,6 +165,13 @@ local quotes = {
         'than the C++ source code that generates it',
         '',
         '-- Andrew Kelley'
+    },
+    {
+        'Pointers have been lumped with goto statement as a marvelous way to create',
+        'impossible-to-understand programs... With discipline, however,',
+        'pointers can be used to achieve clarity and simplicity.',
+        '',
+        '-- Brian Kernighan & Dennis Ritchie'
     }
 }
 
