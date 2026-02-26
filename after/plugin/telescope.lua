@@ -19,4 +19,5 @@ vim.keymap.set('n', '<leader>ts', function()
     builtin.grep_string({ search = vim.fn.input('Grep > ') })
 end, { desc = 'Some Grep' })
 
-vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Telescope find git files' })
+vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Telescope get git status' })
+vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Telescope find git files' })

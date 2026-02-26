@@ -15,3 +15,5 @@ vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
 
 vim.keymap.set('n', '<leader>pu', vim.pack.update)
 vim.keymap.set('n', '<leader>u', vim.cmd.Undotree)
+
+vim.keymap.set('n', '=q', function() vim.cmd((vim.v.count == 0 and '.' or vim.v.count) .. 'cc') end)
