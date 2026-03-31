@@ -55,10 +55,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
             end, opts)
         end
-
-        -- if client:supports_method('textDocument/onTypeFormatting') then
-        --     vim.lsp.on_type_formatting.enable(true)
-        -- end
     end,
 })
 
