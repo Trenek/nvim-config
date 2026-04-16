@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = event.buf }
         local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
 
+        vim.keymap.set('n', '<leader>lr', '<cmd>lsp restart<cr>', opts)
         -- K - vim.lsp.buf.hover
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)

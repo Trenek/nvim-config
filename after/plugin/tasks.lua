@@ -1,5 +1,3 @@
-local Path = require('plenary.path')
-
 local function getOS()
 	-- ask LuaJIT first
 	if jit then
@@ -31,7 +29,7 @@ require('tasks').setup({
         build_type = 'Debug',
         build_kit = getKit(),
         dap_name = 'codelldb',
-        build_dir = tostring(Path:new('{cwd}', 'build')),
+        build_dir = tostring(vim.fs.joinpath(vim.fn.getcwd(), 'build')),
         cmake_kits_file = vim.fn.stdpath("config") .. "/after/plugin/configs/buildTypes.json",
         cmake_build_types_file = nil,
         clangd_cmdline = {
