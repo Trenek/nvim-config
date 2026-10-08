@@ -35,4 +35,12 @@ vim.pack.add({
     { src = 'https://github.com/eandrju/cellular-automaton.nvim' },
     { src = 'https://github.com/folke/which-key.nvim' },
     -- { src = 'https://github.com/dstein64/vim-startuptime' },
+
+    { src = 'https://github.com/stevearc/dressing.nvim' }, -- ładne taski
+    { src = 'https://github.com/akinsho/flutter-tools.nvim' },
+
+    -- python
+    { src = 'https://github.com/ajbucci/ipynb.nvim' },
+    { src = 'https://github.com/folke/snacks.nvim' }, -- images
+    { src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim' },
 })
