@@ -43,4 +43,7 @@ vim.pack.add({
     { src = 'https://github.com/ajbucci/ipynb.nvim' },
     { src = 'https://github.com/folke/snacks.nvim' }, -- images
     { src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim' },
+
+    -- lean
+    { src = 'https://github.com/Julian/lean.nvim' },
 })
