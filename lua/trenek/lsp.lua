@@ -67,3 +67,16 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.keymap.set('n', '<cr>', "<cmd>.cc<cr>", opts)
     end
 })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.tex",
+  callback = function(args)
+    local client = vim.lsp.get_clients({ bufnr = args.buf, name = "texlab" })[1]
+    if client then
+        local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
+
+        ---@diagnostic disable-next-line: param-type-mismatch
+        client:request("textDocument/build", params, function() end, args.buf)
+    end
+  end,
+})

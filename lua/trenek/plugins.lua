@@ -23,9 +23,6 @@ vim.pack.add({
     { src = 'https://github.com/tpope/vim-fugitive' }, -- Git integration
     { src = 'https://github.com/Shatur/neovim-tasks' }, -- Building Tool
 
-    -- latex
-    { src = 'https://github.com/lervag/vimtex' },
-
     -- ikonki
     { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
     { src = 'https://github.com/nvim-mini/mini.icons' },
