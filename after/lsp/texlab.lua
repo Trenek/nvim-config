@@ -9,11 +9,11 @@ return {
         forwardSearchAfter = true,
       },
       forwardSearch = {
-        executable = "okular",
+        executable = "zathura",
         args = {
-          "--unique",
-          "--noraise",
-          "file:%p#src:%l%f",
+          "--synctex-forward",
+          "%l:1:%f",
+          "%p"
         },
       },
       latexFormatter = "latexindent",
